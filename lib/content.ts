@@ -18,7 +18,7 @@ export type Project = {
 
 const gallery = (title: string, files: [string, string][]): Photo[] =>
   files.map(([file, caption]) => ({
-    src: `${P}${file}.png`,
+    src: `${P}${file}.jpg`,
     alt: caption,
     caption: `${title} — ${caption}`,
   }));
@@ -31,12 +31,12 @@ export const PROJECTS: Record<string, Project> = {
     status: "obra",
     index: "01",
     ratio: "4 / 5",
-    cover: `${P}muro-piedra-atardecer.png`,
-    alt: "Vivienda con muro curvo de piedra y volumen de hormigón",
+    cover: `${P}7.jpg`,
+    alt: "Vivienda con base de piedra y volumen de madera entre árboles",
     gallery: gallery("Vivienda de piedra y hormigón", [
-      ["muro-piedra-atardecer", "Muro curvo de piedra"],
-      ["voladizo-hormigon", "Voladizo de hormigón"],
-      ["fachada-gaviones", "Fachada con gaviones"],
+      ["7", "Base de piedra y volumen de madera"],
+      ["4", "Vivienda con pileta entre la vegetación"],
+      ["13", "Terrazas de piedra frente al mar"],
     ]),
   },
   blackmagic: {
@@ -46,9 +46,9 @@ export const PROJECTS: Record<string, Project> = {
     status: "render",
     index: "02",
     ratio: "4 / 5",
-    cover: `${P}casa-negra-render.png`,
-    alt: "Render de vivienda de una planta con fachada oscura de listones y pileta",
-    gallery: gallery("Black Magic · Render", [["casa-negra-render", "Vista desde el jardín"]]),
+    cover: `${P}6.jpg`,
+    alt: "Vivienda de madera oscura y grandes vidriados dentro del bosque",
+    gallery: gallery("Black Magic · Render", [["6", "Vista desde el jardín"]]),
   },
   clasica: {
     id: "clasica",
@@ -57,9 +57,9 @@ export const PROJECTS: Record<string, Project> = {
     status: "obra",
     index: "03",
     ratio: "3 / 4",
-    cover: `${P}residencia-clasica.png`,
-    alt: "Residencia de lenguaje clásico con techo de pizarra y acceso empedrado",
-    gallery: gallery("Residencia de lenguaje clásico", [["residencia-clasica", "Fachada principal"]]),
+    cover: `${P}1.jpg`,
+    alt: "Residencia de piedra y madera con techo a cuatro aguas al atardecer",
+    gallery: gallery("Residencia de lenguaje clásico", [["1", "Fachada principal"]]),
   },
   jardin: {
     id: "jardin",
@@ -68,12 +68,12 @@ export const PROJECTS: Record<string, Project> = {
     status: "obra",
     index: "04",
     ratio: "1 / 1",
-    cover: `${P}casa-lavandas.png`,
-    alt: "Vivienda de dos plantas con piedra, madera y jardín de lavandas",
+    cover: `${P}3.jpg`,
+    alt: "Vivienda de dos plantas con balcón de plantas colgantes y jardín",
     gallery: gallery("Vivienda con jardín", [
-      ["casa-lavandas", "Fachada al jardín"],
-      ["cocina-blanca", "Cocina"],
-      ["escalera-helicoidal", "Escalera helicoidal"],
+      ["3", "Acceso entre jardines"],
+      ["10", "Parque con fogón y living exterior"],
+      ["11", "Cocina exterior con deck de madera"],
     ]),
   },
   aviation: {
@@ -83,11 +83,11 @@ export const PROJECTS: Record<string, Project> = {
     status: "en-obra",
     index: "05",
     ratio: "4 / 5",
-    cover: `${P}aviation.png`,
-    alt: "Estructura de hormigón visto con aleros en voladizo",
+    cover: `${P}8.jpg`,
+    alt: "Volumen blanco en voladizo sobre un parque con la montaña de fondo",
     gallery: gallery("Aviation · En obra", [
-      ["aviation", "Estructura de hormigón"],
-      ["estructura-obra", "Avance de obra"],
+      ["8", "Volumen en voladizo"],
+      ["14", "Vivienda de hormigón sobre la ladera"],
     ]),
   },
   margarita: {
@@ -97,9 +97,9 @@ export const PROJECTS: Record<string, Project> = {
     status: "proyecto",
     index: "06",
     ratio: "3 / 4",
-    cover: `${P}margarita.png`,
-    alt: "Volumen revestido en piedra rodeado de vegetación",
-    gallery: gallery("Margarita · Proyecto", [["margarita", "Acceso"]]),
+    cover: `${P}12.jpg`,
+    alt: "Patio con living hundido rodeado de agua",
+    gallery: gallery("Margarita · Proyecto", [["12", "Patio con agua"]]),
   },
   gaia: {
     id: "gaia",
@@ -108,9 +108,9 @@ export const PROJECTS: Record<string, Project> = {
     status: "obra",
     index: "07",
     ratio: "4 / 5",
-    cover: `${P}local-comercial.png`,
-    alt: "Frente comercial vidriado con cartel GAIA",
-    gallery: gallery("GAIA", [["local-comercial", "Frente comercial"]]),
+    cover: `${P}9.jpg`,
+    alt: "Vista aérea de una propiedad con pileta, cancha y cocheras",
+    gallery: gallery("GAIA", [["9", "Vista aérea"]]),
   },
 };
 

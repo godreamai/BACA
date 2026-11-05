@@ -13,9 +13,9 @@ const Note = ({ children }: { children: React.ReactNode }) =>
   SHOW_REVIEW_NOTES ? <span className="review-note">{children}</span> : null;
 
 const SERVICE_PHOTOS = [
-  "/assets/photos/casa-negra-render.png",
-  "/assets/photos/margarita.png",
-  "/assets/photos/estructura-obra.png",
+  "/assets/photos/4.jpg",
+  "/assets/photos/13.jpg",
+  "/assets/photos/9.jpg",
 ];
 const SERVICE_TAGS = ["Proyecto", "Planificación", "Obra"];
 
@@ -23,32 +23,32 @@ const PILLARS = [
   {
     title: "Conocemos al máximo a quienes van a habitar",
     text: "Antes de proyectar nos interesa saber de tu día a día: tu familia, tus rutinas y el uso que le vas a dar a cada espacio.",
-    photo: "/assets/photos/cocina-blanca.png",
-    alt: "Cocina blanca con isla de mármol y banquetas de madera",
+    photo: "/assets/photos/12.jpg",
+    alt: "Patio con living hundido rodeado de agua",
   },
   {
     title: "Cada casa parte de cero",
     text: "Preferimos no partir de ejemplos de otras casas. Proyectamos desde tu vida y la manera en que querés habitar cada ambiente.",
-    photo: "/assets/photos/casa-lavandas.png",
-    alt: "Vivienda de dos plantas con piedra, madera y jardín de lavandas",
+    photo: "/assets/photos/1.jpg",
+    alt: "Residencia de piedra y madera con techo a cuatro aguas al atardecer",
   },
   {
     title: "Materiales y detalles con intención",
     text: "La elección de materiales y las terminaciones forman parte del proyecto desde el inicio, no se resuelven al final.",
-    photo: "/assets/photos/fachada-gaviones.png",
-    alt: "Fachada con muros de gaviones de piedra, carpinterías de madera y aberturas vidriadas",
+    photo: "/assets/photos/7.jpg",
+    alt: "Vivienda con base de piedra y volumen de madera entre árboles",
   },
   {
     title: "Nos gustan los desafíos",
     text: "Estructuras de ingeniería complejas, nuevas tecnologías y soluciones técnicas trabajadas junto a ingenieros.",
-    photo: "/assets/photos/voladizo-hormigon.png",
-    alt: "Losa de hormigón en voladizo con baranda de vidrio y revestimiento de madera",
+    photo: "/assets/photos/14.jpg",
+    alt: "Vivienda de hormigón sobre la ladera frente al mar",
   },
   {
     title: "No le tememos a la obra",
     text: "En la construcción los imprevistos suceden. Acompañamos la obra y buscamos una solución para cada problema que se presente.",
-    photo: "/assets/photos/estructura-obra.png",
-    alt: "Estructura de hormigón en construcción",
+    photo: "/assets/photos/6.jpg",
+    alt: "Vivienda de madera oscura y grandes vidriados dentro del bosque",
   },
 ];
 
@@ -87,16 +87,16 @@ export default function Home() {
             </div>
             <div className="hero__photos">
               <figure>
-                <Photo src="/assets/photos/casa-pileta-noche.png" alt="Vivienda de dos plantas con galería iluminada y pileta al atardecer" sizes="(max-width: 900px) 45vw, 380px" priority />
+                <Photo src="/assets/photos/2.jpg" alt="Vivienda de dos plantas con pileta y jardín al atardecer" sizes="(max-width: 900px) 45vw, 380px" priority />
                 <figcaption>
                   <span>Vivienda con pileta</span>
                   <StatusTag status="obra" />
                 </figcaption>
               </figure>
               <figure>
-                <Photo src="/assets/photos/voladizo-hormigon.png" alt="Losa de hormigón en voladizo con baranda de vidrio y revestimiento de madera" sizes="(max-width: 900px) 45vw, 380px" />
+                <Photo src="/assets/photos/8.jpg" alt="Volumen blanco en voladizo sobre un parque con la montaña de fondo" sizes="(max-width: 900px) 45vw, 380px" />
                 <figcaption>
-                  <span>Vivienda de piedra y hormigón</span>
+                  <span>Vivienda en voladizo</span>
                   <StatusTag status="obra" />
                 </figcaption>
               </figure>
@@ -135,10 +135,10 @@ export default function Home() {
             <div className="studio__stage">
               <div className="studio__plan" aria-hidden="true" />
               <figure className="studio__shot studio__shot--b">
-                <Photo src="/assets/photos/cocina-blanca.png" alt="Cocina blanca con isla de mármol y banquetas de madera" sizes="(max-width: 900px) 40vw, 300px" />
+                <Photo src="/assets/photos/11.jpg" alt="Cocina exterior con deck de madera y muros de piedra" sizes="(max-width: 900px) 40vw, 300px" />
               </figure>
               <figure className="studio__shot studio__shot--a">
-                <Photo src="/assets/photos/escalera-helicoidal.png" alt="Escalera helicoidal blanca con peldaños de madera y baranda de hierro" sizes="(max-width: 900px) 40vw, 300px" />
+                <Photo src="/assets/photos/10.jpg" alt="Parque con fogón y living exterior" sizes="(max-width: 900px) 40vw, 300px" />
               </figure>
             </div>
           </div>
@@ -216,18 +216,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 7 · Preguntas (foto + panel; desplegables: clic para ver la respuesta) */}
+        {/* 7 · Preguntas (columna editorial + desplegables: clic para ver la respuesta) */}
         <section id="preguntas" className="faq" aria-labelledby="faq-title">
-          <div className="faq__card">
-              <div className="faq__photo">
-                <Image src="/assets/photos/fachada-gaviones.png" alt="Fachada con muros de gaviones de piedra y carpinterías de madera" fill sizes="(max-width: 900px) 100vw, 520px" />
-              </div>
-              <div className="faq__panel">
-                <span className="faq__eyebrow">Preguntas frecuentes</span>
-                <h2 id="faq-title" className="title">Respondemos tus dudas</h2>
-                <p className="faq__lede">Información clara sobre el proceso, tiempos, permisos y formas de trabajo.</p>
-                <Accordion items={FAQ} />
-              </div>
+          <div className="wrap faq__inner">
+            <div className="faq__side">
+              <span className="faq__eyebrow">Preguntas frecuentes</span>
+              <h2 id="faq-title" className="title">Dudas <span>frecuentes</span></h2>
+              <p className="faq__lede">Respondemos consultas sobre el proceso, tiempos, permisos y forma de trabajo.</p>
+            </div>
+            <Accordion items={FAQ} />
+            <div className="faq__art" aria-hidden="true"><i className="a" /><i className="b" /></div>
           </div>
         </section>
 

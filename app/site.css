@@ -396,10 +396,14 @@ section[id] { scroll-margin-top: 84px; }
 .hero__photos figure:last-child { margin-top: clamp(20px, 6vh, 56px); }
 .hero__photos figcaption { font-size: var(--type-caption); color: var(--baca-dark); display: flex; justify-content: space-between; gap: 4px 8px; flex-wrap: wrap; }
 @media (max-width: 900px) {
-  .hero__grid { grid-template-columns: 1fr; gap: clamp(20px, 3vh, 32px); }
-  .hero__title { font-size: clamp(2.25rem, min(11vw, 6.6vh), 4.5rem); }
-  .hero__photos { max-width: 440px; width: 100%; margin-inline: auto; }
-  .hero__photos figure:last-child { margin-top: clamp(14px, 3vh, 32px); }
+  .hero { padding: clamp(14px, 2.6svh, 32px) 0; }
+  .hero__grid { grid-template-columns: 1fr; gap: clamp(14px, 2.4svh, 32px); }
+  .hero__text { gap: clamp(10px, 2svh, 24px); }
+  .hero__title { font-size: clamp(2rem, min(11vw, 6.2svh), 4.5rem); }
+  .hero .lede { font-size: clamp(.9375rem, 2.4svh, 1.125rem); line-height: 1.45; }
+  .hero__actions .baca-btn { min-height: clamp(44px, 6.4svh, 56px); }
+  .hero__photos { max-width: clamp(250px, 56svh, 440px); width: 100%; margin-inline: auto; }
+  .hero__photos figure:last-child { margin-top: clamp(10px, 2svh, 32px); }
 }
 
 /* ---- 2 · Proyectos: slider de tarjetas altas con título encima ---- */
@@ -492,16 +496,6 @@ section[id] { scroll-margin-top: 84px; }
 /* ---- Ajustes finos del rediseño ---- */
 .studio__plan { opacity: .34; }
 @media (max-width: 900px) { :root { --header-height: 72px; } }
-/* Celulares de poca altura: el hero se compacta para seguir entrando completo */
-@media (max-width: 900px) and (max-height: 700px) {
-  .hero { padding: 14px 0; }
-  .hero__text { gap: 12px; }
-  .hero__title { font-size: clamp(2rem, 9.5vw, 3rem); }
-  .hero .lede { font-size: 1rem; line-height: 1.45; }
-  .hero__actions .baca-btn { min-height: 44px; }
-  .hero__photos { max-width: 260px; }
-  .hero__photos figcaption { display: none; }
-}
 @media (max-width: 700px) { .pslider__arrows { display: none; } }
 
 /* ---- Robustez ante textos largos (break-ui) ---- */
@@ -584,86 +578,65 @@ h1, h2, h3, .baca-accordion__trigger > span, .baca-accordion__panel p, .service 
   .step p { padding-left: 76px; }
 }
 
-/* ===== Preguntas frecuentes: foto + panel, pregunta abierta con barra oscura ===== */
-.faq__card { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); background: var(--baca-paper); border-radius: var(--r); overflow: hidden; box-shadow: 0 18px 50px rgba(48, 51, 47, .12); }
-.faq__photo { position: relative; min-height: 360px; }
-.faq__photo img { object-fit: cover; }
-.faq__panel { padding: clamp(28px, 4.5vw, 64px); display: flex; flex-direction: column; gap: 18px; min-width: 0; }
-.faq__eyebrow { display: flex; align-items: center; gap: 14px; font-size: 12px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--baca-dark); }
-.faq__eyebrow::after { content: ""; width: 28px; height: 1px; background: currentColor; }
-.faq__panel .title { color: var(--baca-dark); font-weight: 600; }
-.faq__lede { margin: 0; color: var(--text-body); max-width: 30rem; }
-.faq .baca-accordion { border-top: 0; margin-top: 12px; display: flex; flex-direction: column; gap: 2px; }
-.faq .baca-accordion__item { border-bottom: 1px solid rgba(48, 51, 47, .16); border-radius: var(--r); transition: background-color 200ms var(--ease-out); }
-.faq .baca-accordion__trigger { padding: 16px 20px; font-family: var(--font-body); font-weight: 600; font-size: clamp(1rem, 1.2vw, 1.0625rem); letter-spacing: 0; color: var(--baca-dark); border-radius: var(--r); }
+/* ===== Preguntas frecuentes: columna editorial con composición geométrica + desplegable numerado ===== */
+.faq__inner { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-rows: auto 1fr; column-gap: 0; align-items: start; }
+.faq__inner > * { min-width: 0; }
+.faq__side { grid-column: 1; grid-row: 1; display: flex; flex-direction: column; gap: 22px; border-left: 1px solid rgba(48, 51, 47, .4); padding: 0 clamp(24px, 3vw, 48px) 40px 28px; }
+.faq__eyebrow { display: flex; align-items: center; gap: 16px; margin-left: -29px; font-size: 13px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--baca-dark); }
+.faq__eyebrow::before { content: ""; flex: none; width: 36px; height: 10px; background: var(--baca-olive); }
+.faq__side .title { color: var(--baca-dark); font-weight: 600; }
+.faq__side .title span { display: block; color: var(--baca-olive); font-weight: 500; }
+.faq__lede { margin: 0; color: var(--text-body); max-width: 24rem; }
+.faq__art { grid-column: 1; grid-row: 2; position: relative; align-self: stretch; min-height: clamp(220px, 22vw, 320px); overflow: hidden; border-left: 1px solid rgba(48, 51, 47, .4); border-top: 1px solid rgba(48, 51, 47, .3); border-bottom: 1px solid rgba(48, 51, 47, .4); }
+.faq__art::before { content: ""; position: absolute; left: -45%; top: 4%; width: 100%; aspect-ratio: 1; border: 1px solid rgba(48, 51, 47, .5); border-radius: 50%; }
+.faq__art i { position: absolute; display: block; }
+.faq__art .a { left: 0; bottom: 0; width: 40%; height: 55%; background: var(--baca-olive); }
+.faq__art .b { left: 40%; bottom: 0; width: 55%; height: 9%; background: #D9BDB6; }
+.faq .baca-accordion { grid-column: 2; grid-row: 1 / -1; counter-reset: q; border-top: 0; border-left: 1px solid rgba(48, 51, 47, .3); padding-left: clamp(24px, 3vw, 48px); }
+.faq .baca-accordion__item { counter-increment: q; border-bottom: 1px solid rgba(48, 51, 47, .35); }
+.faq .baca-accordion__trigger { gap: 24px; padding: 20px 20px; font-family: var(--font-body); font-weight: 600; font-size: clamp(1rem, 1.2vw, 1.0625rem); letter-spacing: 0; color: var(--baca-dark); }
+.faq .baca-accordion__trigger::before { content: counter(q, decimal-leading-zero); flex: none; width: 44px; padding-right: 16px; border-right: 1px solid rgba(48, 51, 47, .4); font-size: 12px; font-weight: 600; letter-spacing: .06em; color: var(--baca-olive-deep); line-height: 22px; }
 .faq .baca-accordion__trigger > span { flex: 1; text-align: left; }
 .faq .baca-accordion__trigger .baca-icon { width: 20px; height: 20px; }
-.faq .baca-accordion__item--open { border: 1px solid rgba(48, 51, 47, .22); background: var(--baca-ivory); }
-.faq .baca-accordion__item--open .baca-accordion__trigger { background: var(--baca-dark); color: var(--baca-ivory); border-radius: var(--r) var(--r) 0 0; }
-.faq .baca-accordion__panel p { padding: 16px 20px 20px; font-size: .9375rem; line-height: 1.6; color: var(--text-body); max-width: none; }
+.faq .baca-accordion__item--open .baca-accordion__trigger { background: var(--baca-olive); color: var(--baca-ivory); }
+.faq .baca-accordion__item--open .baca-accordion__trigger::before { color: var(--baca-ivory); border-right-color: rgba(243, 244, 241, .45); }
+.faq .baca-accordion__item--open .baca-accordion__panel { background: rgba(48, 51, 47, .07); }
+.faq .baca-accordion__panel p { padding: 18px 20px 22px 109px; font-size: .9375rem; line-height: 1.6; color: var(--text-body); max-width: none; }
 @media (hover: hover) and (pointer: fine) { .faq .baca-accordion__item:not(.baca-accordion__item--open) .baca-accordion__trigger:hover { background: rgba(48, 51, 47, .05); } }
 @media (max-width: 900px) {
-  .faq__card { grid-template-columns: 1fr; }
-  .faq__photo { min-height: 0; aspect-ratio: 16 / 7; }
-  .faq__panel { padding: 28px 20px 24px; }
+  .faq__inner { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; gap: 28px; }
+  .faq__side { grid-column: 1; grid-row: auto; border-left: 0; padding: 0; }
+  .faq__eyebrow { margin-left: 0; }
+  .faq__lede { max-width: none; }
+  .faq .baca-accordion { grid-column: 1; grid-row: auto; border-left: 0; padding-left: 0; }
+  .faq .baca-accordion__trigger { gap: 16px; padding: 16px 12px; }
+  .faq .baca-accordion__trigger::before { width: 36px; padding-right: 12px; }
+  .faq .baca-accordion__panel p { padding: 16px 16px 20px 64px; }
+  .faq__art { grid-column: 1; grid-row: auto; min-height: 0; height: 44px; border: 0; border-bottom: 1px solid rgba(48, 51, 47, .4); }
+  .faq__art::before, .faq__art .a { display: none; }
+  .faq__art .b { left: 0; width: 38%; height: 12px; }
 }
-@media (max-width: 900px) { .faq__panel .title, .faq__lede { text-align: left; } }
+@media (max-width: 900px) { .faq__side .title, .faq__lede { text-align: left; } .faq .baca-accordion__trigger > span { text-align: left; } }
+@media (max-width: 900px) { .faq__side .title { margin-inline: 0; align-self: stretch; } }
 
-/* FAQ como sección completa: la foto toca el borde izquierdo y el panel ocupa el resto, sin tarjeta */
-.faq { padding: 0; background: var(--baca-ivory); }
-.faq__card { border-radius: 0; box-shadow: none; background: transparent; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
-.faq__photo { min-height: 100%; }
-.faq__panel { padding: var(--section-space) max(var(--gutter), calc((100vw - var(--content-max)) / 2 + var(--gutter))) var(--section-space) clamp(32px, 5vw, 80px); max-width: none; }
-.faq__panel > * { max-width: 40rem; }
-@media (max-width: 900px) {
-  .faq__card { grid-template-columns: 1fr; }
-  .faq__photo { aspect-ratio: 16 / 8; min-height: 0; }
-  .faq__panel { padding: 32px var(--gutter) var(--section-space); }
-  .faq__panel > * { max-width: none; }
-}
-
-/* FAQ adaptada al resto de la página: aire arriba y abajo, foto con esquina curva y contenido hacia la derecha */
-.faq { padding: var(--section-space) 0; }
-.faq__card { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; }
-.faq__photo { min-height: clamp(460px, 44vw, 640px); border-top-right-radius: var(--arc); border-bottom-right-radius: var(--r); overflow: hidden; }
-.faq__panel { padding: 0 max(var(--gutter), calc((100vw - var(--content-max)) / 2 + var(--gutter))) 0 clamp(56px, 9vw, 150px); gap: 20px; }
-.faq__panel > * { max-width: 36rem; }
-@media (max-width: 900px) {
-  .faq { padding: 0 0 var(--section-space); }
-  .faq__card { grid-template-columns: minmax(0, 1fr); align-items: start; }
-  .faq__photo { min-height: 0; aspect-ratio: 16 / 8; border-radius: 0 0 var(--arc) 0; }
-  .faq__panel { padding: 36px var(--gutter) 0; }
-  .faq__panel > * { max-width: none; }
-}
-.faq__photo { border-radius: 0; }
-
-/* FAQ dentro de los márgenes de la página (como el resto de las secciones): la foto ya no toca el borde */
-.faq__card { max-width: var(--content-max); margin-inline: auto; padding-inline: var(--gutter); }
-.faq__panel { padding-right: 0; padding-left: clamp(48px, 7vw, 112px); }
-@media (max-width: 900px) {
-  .faq { padding: var(--section-space) 0; }
-  .faq__photo { aspect-ratio: 16 / 9; }
-  .faq__panel { padding: 32px 0 0; }
+/* FAQ escritorio: la columna izquierda ocupa todo el alto de la sección (las líneas y la composición llegan de arriba a abajo) */
+@media (min-width: 901px) {
+  .faq { padding: 0; }
+  .faq__side { padding-top: var(--section-space); }
+  .faq .baca-accordion { align-self: stretch; padding-block: var(--section-space); }
+  .faq__art { min-height: clamp(200px, 20vw, 300px); border-bottom: 0; }
 }
 
-/* FAQ: la foto no se mueve al abrir o cerrar preguntas (alineada arriba, altura fija) */
-.faq__card { align-items: start; }
-.faq__photo { height: clamp(520px, 46vw, 680px); min-height: 0; }
-@media (max-width: 900px) { .faq__photo { height: auto; } }
-
-/* FAQ en celular: la foto va a lo ancho, pegada arriba, y el contenido debajo */
-@media (max-width: 900px) {
-  .faq { padding: 0 0 var(--section-space); }
-  .faq__card { padding-inline: 0; }
-  .faq__photo { aspect-ratio: 16 / 8; height: auto; }
-  .faq__panel { padding: 32px var(--gutter) 0; }
+/* FAQ escritorio: la columna izquierda pega al borde de la pantalla; el texto conserva el margen de la página */
+@media (min-width: 901px) {
+  .faq__inner { max-width: none; margin: 0; padding-left: 0; padding-right: max(var(--gutter), calc((100vw - var(--content-max)) / 2 + var(--gutter))); }
+  .faq__side { border-left: 0; padding-left: max(var(--gutter), calc((100vw - var(--content-max)) / 2 + var(--gutter))); }
+  .faq__eyebrow { margin-left: 0; }
+  .faq__art { border-left: 0; }
 }
 
-/* FAQ en celular: encabezado y preguntas centrados (con aire a ambos lados para que el texto no toque el "+") */
-@media (max-width: 900px) {
-  .faq__eyebrow { justify-content: center; }
-  .faq__panel .title, .faq__lede { text-align: center; margin-inline: auto; }
-  .faq .baca-accordion__trigger { padding: 16px 16px 16px 52px; }
-  .faq .baca-accordion__trigger > span { text-align: center; }
-  .faq .baca-accordion__panel p { text-align: center; padding-inline: 28px; }
+/* FAQ escritorio: la columna izquierda = margen de la página + ancho propio para el texto (en pantallas anchas el título se apretaba) */
+@media (min-width: 901px) {
+  .faq__inner { grid-template-columns: calc(max(var(--gutter), calc((100vw - var(--content-max)) / 2 + var(--gutter))) + clamp(340px, 30vw, 460px)) minmax(0, 1fr); }
+  .faq__side .title, .faq__side .title span { white-space: nowrap; }
 }
