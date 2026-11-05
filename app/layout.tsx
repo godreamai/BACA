@@ -29,13 +29,15 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
   themeColor: "#F3F4F1",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es-AR">
-      <body>
+      {/* Extensiones del navegador (p. ej. ColorZilla) inyectan atributos en <body> y disparan un aviso de hidratación solo en desarrollo */}
+      <body suppressHydrationWarning>
         <a className="skip-link" href="#main">Saltar al contenido</a>
         {children}
       </body>

@@ -58,7 +58,7 @@ export function Lightbox({
       </div>
       <div className="baca-lightbox__stage">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img key={index} className="baca-reveal" src={img.src} alt={img.alt} />
+        <img key={index} src={img.src} alt={img.alt} />
       </div>
       <div className="baca-lightbox__caption">
         <span>{img.caption || title}</span>

@@ -1,5 +1,7 @@
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+button,a,[role="button"]{touch-action:manipulation}
+button,[role="button"]{user-select:none;-webkit-user-select:none}
 body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-body);font-size:var(--type-body);line-height:var(--leading-body);-webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{font-family:var(--font-heading);color:var(--text-strong);margin:0;text-wrap:balance}
 h1{font-size:var(--type-h1);font-weight:var(--weight-bold);line-height:var(--leading-tight);letter-spacing:var(--tracking-display)}
