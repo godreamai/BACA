@@ -4,47 +4,27 @@
 --baca-olive-hover:#646C53;
 --baca-olive-deep:#545B45;
 --baca-blush:#E4D5CF; /* unificado con blush-soft: un solo tono piel */
---baca-blush-deep:#A7847A;
 --baca-blush-soft:#E4D5CF;
 --baca-ivory:#F3F4F1;
---baca-warm-white:#F3F3F1;
 --baca-paper:#FFFFFF;
 --baca-dark:#30332F;
 --baca-charcoal:#3E413C;
 --baca-stone:#6A6D66;
 --baca-line:#DCDDD7;
---baca-gold-muted:#B6A77B;
 
 /* Semantic — superficies */
 --surface-page:var(--baca-ivory);
---surface-raised:var(--baca-paper);
---surface-olive:var(--baca-olive);
---surface-blush:var(--baca-blush);
---surface-dark:var(--baca-dark);
---surface-image-veil:rgba(243,244,241,.72);
---surface-image-shade:rgba(48,51,47,.38);
 
 /* Semantic — texto */
 --text-strong:var(--baca-dark);
 --text-body:var(--baca-charcoal);
---text-muted:var(--baca-stone);
 --text-accent:var(--baca-olive-deep);
---text-on-olive:var(--baca-paper);
---text-on-dark:var(--baca-ivory);
---text-on-blush:var(--baca-dark);
 
 /* Semantic — interacción y líneas */
 --accent:var(--baca-olive);
---accent-hover:var(--baca-olive-hover);
---accent-press:var(--baca-olive-deep);
---accent-warm:var(--baca-blush);
 --border-subtle:var(--baca-line);
 --border-strong:var(--baca-dark);
---rule-ornament:var(--baca-gold-muted);
 --focus-ring:var(--baca-olive-deep);
 
 /* Estados de proyecto */
---status-obra:var(--baca-olive);
---status-proyecto:var(--baca-blush-deep);
---status-render:var(--baca-stone);
 }

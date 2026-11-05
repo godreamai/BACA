@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Icon, type IconName } from "./Icon";
 
 type Props = {
-  variant?: "primary" | "secondary" | "light" | "blush" | "outline-light";
+  variant?: "primary" | "secondary" | "blush" | "outline-light";
   size?: "sm" | "md" | "lg";
   href: string;
   target?: "_blank";

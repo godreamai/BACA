@@ -2,15 +2,11 @@
 --font-heading:'Manrope',system-ui,sans-serif;
 --font-body:'DM Sans',system-ui,sans-serif;
 
---weight-light:300;
---weight-regular:400;
 --weight-medium:500;
 --weight-semibold:600;
 --weight-bold:700;
---weight-extrabold:800;
 
 /* Escala editorial (fluida) */
---type-display:clamp(3rem,7vw,7.5rem);
 --type-h1:clamp(2.5rem,6vw,6rem);
 --type-h2:clamp(2rem,4vw,4rem);
 --type-h3:clamp(1.5rem,2.2vw,2.25rem);
@@ -20,7 +16,6 @@
 --type-small:1rem;
 --type-caption:0.875rem;
 --type-eyebrow:0.8125rem;
---type-numeral:clamp(6rem,14vw,12rem);
 
 --leading-tight:1.02;
 --leading-heading:1.1;
@@ -29,7 +24,6 @@
 
 --tracking-display:-0.035em;
 --tracking-heading:-0.02em;
---tracking-body:0;
 --tracking-eyebrow:0.18em;
 
 --measure:64ch;

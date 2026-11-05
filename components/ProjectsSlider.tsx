@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { PROJECTS, type Project } from "@/lib/content";
+import { PROJECTS } from "@/lib/content";
 import { INSTAGRAM_URL } from "@/lib/site";
 import { Icon } from "./Icon";
-import { Lightbox } from "./Lightbox";
 import { StatusTag } from "./StatusTag";
 
 const ORDER = ["piedra", "jardin", "clasica", "blackmagic", "aviation", "margarita", "gaia"] as const;
@@ -15,8 +14,6 @@ export function ProjectsSlider() {
   const track = useRef<HTMLDivElement>(null);
   const drag = useRef({ down: false, moved: false, x: 0, left: 0, id: 0 });
   const [dragging, setDragging] = useState(false);
-  const [active, setActive] = useState<Project | null>(null);
-  const [photo, setPhoto] = useState(0);
   const [pos, setPos] = useState({ i: 0, left: 0, width: 100, start: true, end: false });
 
   const stepOf = (el: HTMLDivElement) => {
@@ -108,16 +105,7 @@ export function ProjectsSlider() {
         {ORDER.map((id) => {
           const p = PROJECTS[id];
           return (
-            <button
-              key={id}
-              type="button"
-              className="pslide"
-              aria-haspopup="dialog"
-              onClick={() => {
-                setActive(p);
-                setPhoto(0);
-              }}
-            >
+            <div key={id} className="pslide">
               <Image src={p.cover} alt={p.alt} fill sizes="(max-width: 700px) 72vw, (max-width: 1000px) 40vw, 300px" draggable={false} />
               <span className="pslide__body">
                 <span className="pslide__title">{p.title}</span>
@@ -125,7 +113,7 @@ export function ProjectsSlider() {
                   {p.meta} <span aria-hidden="true">·</span> <StatusTag status={p.status} />
                 </span>
               </span>
-            </button>
+            </div>
           );
         })}
         <a className="pslide pslide--insta" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" draggable={false}>
@@ -153,9 +141,6 @@ export function ProjectsSlider() {
         </span>
       </div>
 
-      {active && (
-        <Lightbox images={active.gallery} index={photo} title={active.title} onIndexChange={setPhoto} onClose={() => setActive(null)} />
-      )}
     </div>
   );
 }

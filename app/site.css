@@ -168,7 +168,7 @@ section[id] { scroll-margin-top: 84px; }
   .contact__actions { width: 100%; flex-direction: column; align-items: stretch; gap: 20px; }
   .contact__actions .baca-btn { width: 100%; }
   .contact__logo { right: -70px; top: 10%; transform: none; width: 220px; }
-  .baca-wa:not(.baca-wa--static) { width: 56px; height: 56px; padding: 0; justify-content: center; }
+  .baca-wa { width: 56px; height: 56px; padding: 0; justify-content: center; }
   .baca-wa span { display: none; }
 }
 
@@ -298,7 +298,6 @@ section[id] { scroll-margin-top: 84px; }
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-    @keyframes clip-up { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0); } }
     @keyframes drift { from { translate: 0 30px; } to { translate: 0 -30px; } }
 
     /* Títulos de sección (reemplaza al fundido simple anterior) */
@@ -367,8 +366,8 @@ section[id] { scroll-margin-top: 84px; }
 
 /* Boton flotante de WhatsApp: entra suave al aparecer (200 ms, ease-out) */
 @media (prefers-reduced-motion: no-preference) {
-  .baca-wa:not(.baca-wa--static) { transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out), background-color var(--duration-default) var(--ease-soft); }
-  @starting-style { .baca-wa:not(.baca-wa--static) { opacity: 0; transform: translateY(8px); } }
+  .baca-wa { transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out), background-color var(--duration-default) var(--ease-soft); }
+  @starting-style { .baca-wa { opacity: 0; transform: translateY(8px); } }
 }
 
 
@@ -505,13 +504,12 @@ h1, h2, h3, .baca-accordion__trigger > span, .baca-accordion__panel p, .service 
 .step { min-width: 0; }
 .pslide__handle { flex-wrap: wrap; row-gap: 2px; }
 .baca-footer a, .baca-footer li, .baca-footer p { overflow-wrap: anywhere; }
-.baca-footer__cols > *, .baca-footer__top > * { min-width: 0; }
+.baca-footer__top > * { min-width: 0; }
 
 
-/* Lightbox: la foto nueva entra con un fundido corto; menú móvil: baja desde el header (sin movimiento si se reduce) */
+/* Menú móvil: baja desde el header (sin movimiento si se reduce) */
 @keyframes lb-photo { from { opacity: 0; } to { opacity: 1; } }
 @keyframes menu-in { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: none; } }
-.baca-lightbox__stage img { animation: lb-photo 150ms var(--ease-out) both; }
 .baca-menu { animation: menu-in 200ms var(--ease-out) both; }
 @media (prefers-reduced-motion: reduce) {
   .baca-menu { animation: lb-photo 120ms linear both; }
