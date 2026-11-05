@@ -216,15 +216,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 7 · Preguntas (desplegables: clic para ver la respuesta) */}
+        {/* 7 · Preguntas (foto + panel; desplegables: clic para ver la respuesta) */}
         <section id="preguntas" className="faq" aria-labelledby="faq-title">
-          <div className="wrap faq__inner">
-            <div className="faq__intro">
-              <h2 id="faq-title" className="title">Antes de <span>empezar.</span></h2>
-              <p>¿Tenés otra duda? Escribinos y lo conversamos.</p>
-              <div><Button variant="secondary" href={WHATSAPP_URL} target="_blank" icon="message-circle" iconPosition="start">Consultar por WhatsApp</Button></div>
-            </div>
-            <Accordion items={FAQ} />
+          <div className="faq__card">
+              <div className="faq__photo">
+                <Image src="/assets/photos/fachada-gaviones.png" alt="Fachada con muros de gaviones de piedra y carpinterías de madera" fill sizes="(max-width: 900px) 100vw, 520px" />
+              </div>
+              <div className="faq__panel">
+                <span className="faq__eyebrow">Preguntas frecuentes</span>
+                <h2 id="faq-title" className="title">Respondemos tus dudas</h2>
+                <p className="faq__lede">Información clara sobre el proceso, tiempos, permisos y formas de trabajo.</p>
+                <Accordion items={FAQ} />
+              </div>
           </div>
         </section>
 

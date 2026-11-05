@@ -143,17 +143,6 @@ section[id] { scroll-margin-top: 84px; }
 
 /* ===== 7 · Preguntas: acordeón (clic para ver la respuesta) ===== */
 .faq { background: var(--baca-ivory); padding: var(--section-space) 0; }
-.faq__inner { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 48px clamp(48px, 7vw, 128px); align-items: start; }
-.faq__intro { display: flex; flex-direction: column; gap: 24px; }
-.faq__intro .title { color: var(--baca-dark); }
-.faq__intro .title span { color: var(--baca-olive); }
-.faq__intro p { margin: 0; color: var(--text-body); max-width: 26rem; }
-.faq .baca-accordion { border-top: 2px solid var(--baca-dark); }
-.faq .baca-accordion__item { border-bottom-color: rgba(48,51,47,.25); }
-.faq .baca-accordion__trigger { font-weight: 500; font-size: clamp(1.1875rem, 1.9vw, 1.625rem); letter-spacing: -0.02em; }
-.faq .baca-accordion__item--open .baca-accordion__trigger { color: var(--baca-olive-deep); }
-.faq .baca-accordion__panel p { font-size: var(--type-lede); color: var(--baca-dark); }
-@media (max-width: 900px) { .faq__inner { grid-template-columns: 1fr; } }
 
 /* ===== 8 · Contacto: franja compacta con el logo de fondo ===== */
 .contact { position: relative; overflow: hidden; isolation: isolate; background: var(--baca-dark); color: var(--baca-ivory); padding: clamp(44px, 5vw, 72px) 0; }
@@ -171,7 +160,7 @@ section[id] { scroll-margin-top: 84px; }
   .hero { padding-top: 32px; }
   .hero__photos figcaption { flex-direction: column; gap: 4px; }
   .hero__actions { gap: 16px 24px; }
-  .services__head, .process__head, .faq__intro { gap: 16px; }
+  .services__head, .process__head { gap: 16px; }
   .contact { padding: 56px 0; }
   .contact__inner { gap: 28px; }
   .contact__text { gap: 16px; }
@@ -217,12 +206,10 @@ section[id] { scroll-margin-top: 84px; }
   .hero__text { align-items: center; text-align: center; }
   .hero__text .lede { max-width: none; }
   .hero__actions { justify-content: center; }
-  .services__head, .process__head, .faq__head { flex-direction: column; align-items: center; text-align: center; }
+  .services__head, .process__head { flex-direction: column; align-items: center; text-align: center; }
   .services__head p, .process__head p { max-width: none; }
   .studio__text { align-items: center; text-align: center; }
   .studio__sign { text-align: center; align-items: center; }
-  .faq__intro { align-items: center; text-align: center; }
-  .faq__intro p { max-width: none; }
   .contact__text { text-align: center; align-items: center; }
   .contact__title { text-align: center; }
   .contact__actions { align-items: stretch; }
@@ -240,12 +227,6 @@ section[id] { scroll-margin-top: 84px; }
   .baca-footer__top > :last-child { grid-column: 1 / -1; }
 }
 
-/* Mobile: preguntas frecuentes y "No solo diseñamos casas." centradas */
-@media (max-width: 700px) {
-  .faq .baca-accordion__trigger { justify-content: space-between; padding-left: 28px; text-align: center; }
-  .faq .baca-accordion__trigger > span { flex: 1; }
-  .faq .baca-accordion__panel p { text-align: center; margin-inline: auto; }
-}
 
 
 /* =====================================================================
@@ -524,46 +505,14 @@ section[id] { scroll-margin-top: 84px; }
 @media (max-width: 700px) { .pslider__arrows { display: none; } }
 
 /* ---- Robustez ante textos largos (break-ui) ---- */
-.hero__grid > *, .faq__inner > *, .projects__layout > *, .studio__inner > * { min-width: 0; }
-@media (max-width: 900px) { .hero__grid, .faq__inner { grid-template-columns: minmax(0, 1fr); } }
+.hero__grid > *, .projects__layout > *, .studio__inner > * { min-width: 0; }
+@media (max-width: 900px) { .hero__grid { grid-template-columns: minmax(0, 1fr); } }
 h1, h2, h3, .baca-accordion__trigger > span, .baca-accordion__panel p, .service li, .pillar p, .step p, .pslide__meta { overflow-wrap: anywhere; }
 .step { min-width: 0; }
 .pslide__handle { flex-wrap: wrap; row-gap: 2px; }
 .baca-footer a, .baca-footer li, .baca-footer p { overflow-wrap: anywhere; }
 .baca-footer__cols > *, .baca-footer__top > * { min-width: 0; }
 
-/* ---- FAQ: numeración, botón circular y estado abierto más claro ---- */
-.faq .baca-accordion { counter-reset: q; }
-.faq .baca-accordion__item { counter-increment: q; transition: background-color 200ms var(--ease-out); }
-.faq .baca-accordion__item--open { background: rgba(116, 125, 94, .09); }
-.faq .baca-accordion__trigger { padding-inline: 12px; }
-.faq .baca-accordion__panel p { padding-inline: 12px; }
-.faq .baca-accordion__trigger .baca-icon {
-  box-sizing: content-box; padding: 9px; border: 1px solid rgba(48, 51, 47, .35); border-radius: 50%;
-  transition: transform 280ms var(--ease-out), background-color 200ms var(--ease-out), color 200ms var(--ease-out), border-color 200ms;
-}
-.faq .baca-accordion__item--open .baca-icon { background: var(--baca-dark); border-color: var(--baca-dark); color: var(--baca-ivory); }
-@media (hover: hover) and (pointer: fine) {
-  .faq .baca-accordion__trigger:hover .baca-icon { border-color: var(--baca-dark); }
-}
-@media (min-width: 901px) {
-  .faq .baca-accordion__trigger::before {
-    content: counter(q, decimal-leading-zero); flex: none; width: 2.75rem; font-family: var(--font-body);
-    font-size: 13px; font-weight: 600; letter-spacing: .14em; color: var(--baca-olive-deep);
-  }
-  .faq .baca-accordion__panel p { padding-left: calc(12px + 2.75rem + 24px); }
-}
-@media (max-width: 900px) {
-  .faq .baca-accordion__trigger { padding-left: 12px; }
-}
-@media (min-width: 701px) { .faq .baca-accordion__trigger > span { flex: 1; text-align: left; } }
-
-/* FAQ más compacta: filas más bajas, pregunta más chica, respuesta ajustada */
-.faq .baca-accordion__trigger { padding-block: 18px; font-size: clamp(1.0625rem, 1.35vw, 1.25rem); }
-.faq .baca-accordion__trigger .baca-icon { padding: 7px; }
-.faq .baca-accordion__panel p { font-size: 1rem; line-height: 1.55; padding-bottom: 20px; max-width: 46rem; }
-.faq__inner { gap: 32px clamp(40px, 6vw, 96px); }
-.faq__intro { gap: 16px; }
 
 /* Lightbox: la foto nueva entra con un fundido corto; menú móvil: baja desde el header (sin movimiento si se reduce) */
 @keyframes lb-photo { from { opacity: 0; } to { opacity: 1; } }
@@ -633,4 +582,88 @@ h1, h2, h3, .baca-accordion__trigger > span, .baca-accordion__panel p, .service 
 @media (max-width: 460px) {
   .step__n { flex-basis: 56px; font-size: 2.25rem; }
   .step p { padding-left: 76px; }
+}
+
+/* ===== Preguntas frecuentes: foto + panel, pregunta abierta con barra oscura ===== */
+.faq__card { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); background: var(--baca-paper); border-radius: var(--r); overflow: hidden; box-shadow: 0 18px 50px rgba(48, 51, 47, .12); }
+.faq__photo { position: relative; min-height: 360px; }
+.faq__photo img { object-fit: cover; }
+.faq__panel { padding: clamp(28px, 4.5vw, 64px); display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.faq__eyebrow { display: flex; align-items: center; gap: 14px; font-size: 12px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--baca-dark); }
+.faq__eyebrow::after { content: ""; width: 28px; height: 1px; background: currentColor; }
+.faq__panel .title { color: var(--baca-dark); font-weight: 600; }
+.faq__lede { margin: 0; color: var(--text-body); max-width: 30rem; }
+.faq .baca-accordion { border-top: 0; margin-top: 12px; display: flex; flex-direction: column; gap: 2px; }
+.faq .baca-accordion__item { border-bottom: 1px solid rgba(48, 51, 47, .16); border-radius: var(--r); transition: background-color 200ms var(--ease-out); }
+.faq .baca-accordion__trigger { padding: 16px 20px; font-family: var(--font-body); font-weight: 600; font-size: clamp(1rem, 1.2vw, 1.0625rem); letter-spacing: 0; color: var(--baca-dark); border-radius: var(--r); }
+.faq .baca-accordion__trigger > span { flex: 1; text-align: left; }
+.faq .baca-accordion__trigger .baca-icon { width: 20px; height: 20px; }
+.faq .baca-accordion__item--open { border: 1px solid rgba(48, 51, 47, .22); background: var(--baca-ivory); }
+.faq .baca-accordion__item--open .baca-accordion__trigger { background: var(--baca-dark); color: var(--baca-ivory); border-radius: var(--r) var(--r) 0 0; }
+.faq .baca-accordion__panel p { padding: 16px 20px 20px; font-size: .9375rem; line-height: 1.6; color: var(--text-body); max-width: none; }
+@media (hover: hover) and (pointer: fine) { .faq .baca-accordion__item:not(.baca-accordion__item--open) .baca-accordion__trigger:hover { background: rgba(48, 51, 47, .05); } }
+@media (max-width: 900px) {
+  .faq__card { grid-template-columns: 1fr; }
+  .faq__photo { min-height: 0; aspect-ratio: 16 / 7; }
+  .faq__panel { padding: 28px 20px 24px; }
+}
+@media (max-width: 900px) { .faq__panel .title, .faq__lede { text-align: left; } }
+
+/* FAQ como sección completa: la foto toca el borde izquierdo y el panel ocupa el resto, sin tarjeta */
+.faq { padding: 0; background: var(--baca-ivory); }
+.faq__card { border-radius: 0; box-shadow: none; background: transparent; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+.faq__photo { min-height: 100%; }
+.faq__panel { padding: var(--section-space) max(var(--gutter), calc((100vw - var(--content-max)) / 2 + var(--gutter))) var(--section-space) clamp(32px, 5vw, 80px); max-width: none; }
+.faq__panel > * { max-width: 40rem; }
+@media (max-width: 900px) {
+  .faq__card { grid-template-columns: 1fr; }
+  .faq__photo { aspect-ratio: 16 / 8; min-height: 0; }
+  .faq__panel { padding: 32px var(--gutter) var(--section-space); }
+  .faq__panel > * { max-width: none; }
+}
+
+/* FAQ adaptada al resto de la página: aire arriba y abajo, foto con esquina curva y contenido hacia la derecha */
+.faq { padding: var(--section-space) 0; }
+.faq__card { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; }
+.faq__photo { min-height: clamp(460px, 44vw, 640px); border-top-right-radius: var(--arc); border-bottom-right-radius: var(--r); overflow: hidden; }
+.faq__panel { padding: 0 max(var(--gutter), calc((100vw - var(--content-max)) / 2 + var(--gutter))) 0 clamp(56px, 9vw, 150px); gap: 20px; }
+.faq__panel > * { max-width: 36rem; }
+@media (max-width: 900px) {
+  .faq { padding: 0 0 var(--section-space); }
+  .faq__card { grid-template-columns: minmax(0, 1fr); align-items: start; }
+  .faq__photo { min-height: 0; aspect-ratio: 16 / 8; border-radius: 0 0 var(--arc) 0; }
+  .faq__panel { padding: 36px var(--gutter) 0; }
+  .faq__panel > * { max-width: none; }
+}
+.faq__photo { border-radius: 0; }
+
+/* FAQ dentro de los márgenes de la página (como el resto de las secciones): la foto ya no toca el borde */
+.faq__card { max-width: var(--content-max); margin-inline: auto; padding-inline: var(--gutter); }
+.faq__panel { padding-right: 0; padding-left: clamp(48px, 7vw, 112px); }
+@media (max-width: 900px) {
+  .faq { padding: var(--section-space) 0; }
+  .faq__photo { aspect-ratio: 16 / 9; }
+  .faq__panel { padding: 32px 0 0; }
+}
+
+/* FAQ: la foto no se mueve al abrir o cerrar preguntas (alineada arriba, altura fija) */
+.faq__card { align-items: start; }
+.faq__photo { height: clamp(520px, 46vw, 680px); min-height: 0; }
+@media (max-width: 900px) { .faq__photo { height: auto; } }
+
+/* FAQ en celular: la foto va a lo ancho, pegada arriba, y el contenido debajo */
+@media (max-width: 900px) {
+  .faq { padding: 0 0 var(--section-space); }
+  .faq__card { padding-inline: 0; }
+  .faq__photo { aspect-ratio: 16 / 8; height: auto; }
+  .faq__panel { padding: 32px var(--gutter) 0; }
+}
+
+/* FAQ en celular: encabezado y preguntas centrados (con aire a ambos lados para que el texto no toque el "+") */
+@media (max-width: 900px) {
+  .faq__eyebrow { justify-content: center; }
+  .faq__panel .title, .faq__lede { text-align: center; margin-inline: auto; }
+  .faq .baca-accordion__trigger { padding: 16px 16px 16px 52px; }
+  .faq .baca-accordion__trigger > span { text-align: center; }
+  .faq .baca-accordion__panel p { text-align: center; padding-inline: 28px; }
 }
