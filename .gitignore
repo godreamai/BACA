@@ -1,0 +1,15 @@
+node_modules
+.next
+out
+next-env.d.ts
+*.tsbuildinfo
+.env*.local
+.vercel
+
+# Material de referencia / prototipo original (no es parte del sitio Next.js)
+/_ds
+/uploads
+/assets
+/.thumbnail
+/support.js
+/BACA Landing.dc.html

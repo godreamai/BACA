@@ -1,0 +1,14 @@
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-body);font-size:var(--type-body);line-height:var(--leading-body);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-heading);color:var(--text-strong);margin:0;text-wrap:balance}
+h1{font-size:var(--type-h1);font-weight:var(--weight-bold);line-height:var(--leading-tight);letter-spacing:var(--tracking-display)}
+h2{font-size:var(--type-h2);font-weight:var(--weight-bold);line-height:var(--leading-heading);letter-spacing:var(--tracking-heading)}
+h3{font-size:var(--type-h3);font-weight:var(--weight-semibold);line-height:var(--leading-snug);letter-spacing:var(--tracking-heading)}
+h4{font-size:var(--type-h4);font-weight:var(--weight-semibold);line-height:var(--leading-snug)}
+p{margin:0;text-wrap:pretty}
+img{display:block;max-width:100%}
+a{color:var(--text-strong);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.25em;transition:color var(--duration-fast) var(--ease-soft)}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--focus-ring);outline-offset:3px}
+::selection{background:var(--baca-blush-soft);color:var(--baca-dark)}

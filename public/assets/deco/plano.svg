@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none" stroke="#30332F" stroke-linecap="round" stroke-linejoin="round">
+  <!-- cotas -->
+  <g stroke-width="1">
+    <path d="M40 16H560M40 10V22M560 10V22M35 21 45 11M555 21 565 11"/>
+    <path d="M16 40V360M10 40H22M10 360H22M11 45 21 35M11 365 21 355"/>
+  </g>
+  <!-- muros -->
+  <rect x="40" y="40" width="520" height="320" stroke-width="3"/>
+  <rect x="48" y="48" width="504" height="304" stroke-width="1"/>
+  <!-- tabiques con vanos de puerta -->
+  <g stroke-width="2">
+    <path d="M300 48V150M300 200V230M300 230H552M48 230H215M265 230H300M300 270V352"/>
+    <path d="M300 230V270" stroke-dasharray="2 6"/>
+  </g>
+  <!-- hojas y giros de puerta -->
+  <g stroke-width="1">
+    <path d="M300 150 350 150M300 150A50 50 0 0 1 350 200"/>
+    <path d="M215 230V280M215 280A50 50 0 0 0 265 230"/>
+  </g>
+  <!-- ventanas -->
+  <g stroke-width="1">
+    <path d="M110 40V48M230 40V48M110 44H230"/>
+    <path d="M552 90H560M552 190H560M556 90V190"/>
+    <path d="M370 352V360M510 352V360M370 356H510"/>
+  </g>
+  <!-- escalera -->
+  <g stroke-width="1">
+    <rect x="62" y="272" width="110" height="68"/>
+    <path d="M62 284H172M62 296H172M62 308H172M62 320H172M62 332H172"/>
+    <path d="M80 340V282M76 290 80 282 84 290"/>
+  </g>
+  <!-- mesa -->
+  <g stroke-width="1">
+    <rect x="400" y="100" width="100" height="60" rx="2"/>
+    <path d="M420 90H480M420 170H480"/>
+  </g>
+</svg>
