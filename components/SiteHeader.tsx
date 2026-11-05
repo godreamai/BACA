@@ -32,7 +32,7 @@ export function SiteHeader() {
         <div className="baca-header__inner">
           <button type="button" className="baca-header__logo" onClick={goTop} aria-label="BACA Arquitectura & Diseño — inicio">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/logo/baca-logo-oscuro.svg" alt="" />
+            <img src="/assets/logo/baca-logo-claro.svg" alt="" />
           </button>
           <nav className="baca-header__nav" aria-label="Principal">
             {NAV_LINKS.map((l) => (
